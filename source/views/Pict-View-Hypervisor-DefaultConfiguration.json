@@ -1,0 +1,13 @@
+{
+	"AutoRender": false,
+	"AutoSolveWithApp": false,
+
+	"DefaultRenderable": "Hypervisor-Main",
+	"DefaultDestinationAddress": "#Pict-EntityManagement-Container",
+
+	"Renderables": [],
+
+	"Templates": [],
+
+	"TargetElementAddress": "#EntityManagement-Container-Div"
+}

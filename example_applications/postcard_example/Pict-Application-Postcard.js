@@ -32,3 +32,4 @@ class PostcardApplication extends libPictApplication
 module.exports = PostcardApplication
 
 module.exports.default_configuration = require('./Pict-Application-Postcard-Configuration.json');
+module.exports.default_configuration.DefaultMeadowSchema = require(`../schema/Bookstore-Model-Extended.json`);
