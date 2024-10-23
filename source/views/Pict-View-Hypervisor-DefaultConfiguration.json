@@ -5,6 +5,8 @@
 	"DefaultRenderable": "Hypervisor-Main",
 	"DefaultDestinationAddress": "#Pict-EntityManagement-Container",
 
+	"DynamicViewPrefix": "Pict-DynamicEntity-",
+
 	"Renderables": [],
 
 	"Templates": [],

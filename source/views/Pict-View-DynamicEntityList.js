@@ -44,6 +44,7 @@ module.exports.default_configuration =
 			Hash: 'Pict-DynamicEntityList-Template',
 			Template: /*html*/`
 <!--  pict view template: [Pict-DynamicEntityList-Template] -->
+<H1>Dynamic Entity List</H1>
 <!--  end view template:  [Pict-DynamicEntityList-Template] -->
 `
 		}

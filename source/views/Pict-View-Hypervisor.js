@@ -52,7 +52,57 @@ class Hypervisor extends libPictView
 
 		// Initialize the router for the known entity/entities
 		// TODO:  Add a mechanism for the plural above to be meaningful
+		if (this.defaultEntity && this.defaultEntity in this.meadowSchema.Tables)
+		{
+			this.pict.providers.DynamicEntityRouter.addEntityRoutes(this.defaultEntity, this);
+		}
+
+		this.targetElementAddress = this.options.TargetElementAddress;
+	}
+
+	getListView(pEntity)
+	{
+		let tmpViewHash = `${this.options.DynamicViewPrefix}${pEntity}-List`;
+		if (this.pict.views.hasOwnProperty(tmpViewHash))
+		{
+			// The view exists -- return
+			return this.pict.views[tmpViewHash];
+		}
+
+		// The list view does not exist -- create it
+		if (!pEntity in this.meadowSchema.Tables)
+		{
+			this.log.error(`Entity [${pEntity}] not found in schema from getListView; operation halted.`);
+			return false;
+		}
+
+		let tmpListViewConfiguration = JSON.parse(JSON.stringify(libDynamicEntityList.default_configuration));
+		tmpListViewConfiguration.ViewIdentifier = tmpViewHash;
+		tmpListViewConfiguration.DefaultDestinationAddress = this.targetElementAddress;
+		tmpListViewConfiguration.Entity = pEntity;
+		tmpListViewConfiguration.MeadowSchema = JSON.parse(JSON.stringify(this.meadowSchema.Tables[pEntity]));
+
+		this.pict.addView(tmpViewHash, tmpListViewConfiguration, libDynamicEntityList);
 		
+		// TODO: For now this is not async -- mayhaps we change it?
+		this.pict.views[tmpViewHash].initialize();
+
+		return this.pict.views[tmpViewHash];
+	}
+
+	renderList(pEntity, pParameters)
+	{
+		this.log.trace(`Hypervisor.renderList(${pEntity}, ${pParameters})`);
+
+		let tmpListView = this.getListView(pEntity);
+
+		if (!tmpListView)
+		{
+			this.log.error(`No list view found for entity [${pEntity}]; cannot render.`);
+			return false;
+		}
+
+		tmpListView.render();
 	}
 }
 
