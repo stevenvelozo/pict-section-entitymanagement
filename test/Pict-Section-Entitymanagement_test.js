@@ -17,6 +17,7 @@ const Expect = Chai.expect;
 //libBrowserEnv();
 
 const libPict = require('pict');
+const libPictSectionForm = require('pict-section-form');
 
 const _MockPictConfiguration = (
 {
@@ -64,6 +65,10 @@ suite
 					function(fDone)
 					{
 						var testPict = new libPict(_MockPictConfiguration);
+						// Load the dynamic application dependencies if they don't exist
+						testPict.addAndInstantiateSingletonService('PictDynamicApplication', libPictSectionForm.PictDynamicApplicationService.default_configuration, libPictSectionForm.PictDynamicApplicationService);
+
+						testPict.addApplication('PictSectionForm', {}, libPictSectionForm.PictFormApplication);
 						let testView = testPict.addView('TestView', _MockPictViewConfiguration,  libPictView);
 						testView.initialize();
 						Expect(testView).to.be.an('object');
@@ -78,6 +83,8 @@ suite
 					function(fDone)
 					{
 						var testPict = new libPict(_MockPictConfiguration);
+						// Load the dynamic application dependencies if they don't exist
+						testPict.addAndInstantiateSingletonService('PictDynamicApplication', libPictSectionForm.PictDynamicApplicationService.default_configuration, libPictSectionForm.PictDynamicApplicationService);
 						let testView = testPict.addView('TestView', _MockPictViewConfiguration,  libPictView);
 						testView.initializeAsync(
 							(fCallback) =>

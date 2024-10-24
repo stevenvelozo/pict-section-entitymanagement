@@ -35,6 +35,6 @@
     },
     "dependencies": {
         "pict-router": "^1.0.1",
-        "pict-section-form": "^1.0.35"
+        "pict-section-form": "^1.0.39"
     }
 }

@@ -4,6 +4,10 @@ const libDynamicEntityList = require(`./Pict-View-DynamicEntityList.js`);
 const libDynamicEntityRecord = require(`./Pict-View-DynamicEntityRecord.js`);
 const libDynamicEntityCustom = require(`./Pict-View-DynamicEntityCustom.js`);
 
+const libDynamicListViewTemplates = require(`../templates/Pict-Templates-DynamicListView-Default.js`);
+
+const libLayoutDynamicRecord = require(`../layouts/Layout-DynamicRecord.js`);
+
 class Hypervisor extends libPictView
 {
 	constructor(pFable, pOptions, pServiceHash)
@@ -58,6 +62,14 @@ class Hypervisor extends libPictView
 		}
 
 		this.targetElementAddress = this.options.TargetElementAddress;
+	}
+
+	onAfterInitialize()
+	{
+		// Load the metatemplates
+		this.pict.providers.PictFormSectionDefaultTemplateProvider.injectTemplateSet(libDynamicListViewTemplates);
+
+		return super.onAfterInitialize();
 	}
 
 	getListView(pEntity)
