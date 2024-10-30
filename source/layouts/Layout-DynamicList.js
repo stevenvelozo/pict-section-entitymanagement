@@ -1,6 +1,6 @@
 const libPictDynamicLayout = require('pict-section-form').PictDynamicLayoutProvider;
 
-class RecordLayoutDynamic extends libPictDynamicLayout
+class ListLayoutDynamic extends libPictDynamicLayout
 {
 	constructor(pFable, pOptions, pServiceHash)
 	{
@@ -55,4 +55,4 @@ class RecordLayoutDynamic extends libPictDynamicLayout
 	}
 }
 
-module.exports = RecordLayoutDynamic;
+module.exports = ListLayoutDynamic;
