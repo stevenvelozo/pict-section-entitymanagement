@@ -129,7 +129,7 @@ module.exports = DynamicEntityRouter;
  **************************************/
 module.exports.default_configuration =
 {
-	ViewIdentifier: 'DynamicEntityRouter',
+	ProviderIdentifier: 'DynamicEntityRouter',
 
 	// If this is set to true, when the App initializes this will.
 	// While the App initializes, initialize will be called.
