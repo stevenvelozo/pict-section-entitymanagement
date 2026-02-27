@@ -1,6 +1,6 @@
 {
     "name": "pict-section-entitymanagement",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Dynamic entity management sections leveraging pict-section-forms metatemplates.",
     "main": "source/Pict-Section-EntityManagement.js",
     "scripts": {
@@ -34,7 +34,7 @@
         ]
     },
     "dependencies": {
-        "pict-router": "^1.0.1",
-        "pict-section-form": "^1.0.39"
+        "pict-router": "^1.0.6",
+        "pict-section-form": "^1.0.193"
     }
 }
