@@ -1,0 +1,7 @@
+{
+	"Name": "pict-section-entitymanagement",
+	"Version": "1.0.1",
+	"Description": "Dynamic entity management sections leveraging pict-section-forms metatemplates.",
+	"GeneratedAt": "2026-04-10T01:50:15.226Z",
+	"GitCommit": "9a914a8"
+}
